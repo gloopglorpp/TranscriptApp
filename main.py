@@ -4,4 +4,4 @@ youtube_url = input("Paste Youtube URL here: ")
 
 print("Processing...")
 
-print("Youtube URL:", youtube_url)
+print("Youtube URL:", youtube_url.split("=")[1])

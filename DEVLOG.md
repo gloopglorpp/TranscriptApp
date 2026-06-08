@@ -19,3 +19,13 @@ The next milestone will be accepting a YouTube URL from the user and beginning t
 - Commits create snapshots of a project's state that can be revisited later.
 - Establishing version control early creates a safer environment for experimentation and learning.
 - Small, incremental milestones are easier to test and understand than building large features all at once.
+
+v0.1.0
+
+Implemented user input handling.
+The application can now accept a YouTube URL from the terminal and store it in a variable for future processing.
+
+Lessons Learned:
+- input() waits for user input and returns a string.
+- Variables can store user-provided data.
+- print() can output both strings and variables.

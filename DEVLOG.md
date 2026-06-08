@@ -20,12 +20,24 @@ The next milestone will be accepting a YouTube URL from the user and beginning t
 - Establishing version control early creates a safer environment for experimentation and learning.
 - Small, incremental milestones are easier to test and understand than building large features all at once.
 
-v0.1.0
+## 2026-06-08 — Implemented user input handling.
 
-Implemented user input handling.
 The application can now accept a YouTube URL from the terminal and store it in a variable for future processing.
 
 Lessons Learned:
 - input() waits for user input and returns a string.
 - Variables can store user-provided data.
 - print() can output both strings and variables.
+
+## 2026-06-08 — Video ID Extraction
+
+Implemented YouTube video ID extraction.
+
+The program now accepts a YouTube URL and uses Python's split("=") method to separate the URL into parts. The video ID is retrieved from the second item in the resulting list using index [1].
+
+### Lessons Learned
+
+- Strings can be split into lists using split().
+- Lists use zero-based indexing.
+- Useful information can be extracted from text by identifying patterns.
+- User input can be transformed into data for later processing.

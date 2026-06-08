@@ -41,3 +41,23 @@ The program now accepts a YouTube URL and uses Python's split("=") method to sep
 - Lists use zero-based indexing.
 - Useful information can be extracted from text by identifying patterns.
 - User input can be transformed into data for later processing.
+
+## 2026-06-08 — Transcript Retrieval
+
+Implemented transcript retrieval from YouTube videos.
+
+Created a Python virtual environment for the project and installed the youtube-transcript-api package. Learned how Python imports external libraries and how third-party packages can add functionality to a program.
+
+Used the extracted YouTube video ID to request a transcript from YouTube. Encountered an error when using an outdated method name and used Python's dir() function to inspect the available methods within the library. Discovered that the current version uses fetch() rather than get_transcript().
+
+Successfully downloaded transcript data for a YouTube video and displayed the returned data structure in the terminal.
+
+### Lessons Learned
+
+- Virtual environments isolate project dependencies from the rest of the system.
+- External packages can be installed using pip.
+- Libraries change over time, and online tutorials may contain outdated code.
+- dir() can be used to inspect available attributes and methods of an object.
+- Classes act as blueprints and must often be instantiated before use.
+- Methods can return complex data structures that may need further processing.
+- Debugging often involves investigating what a program is actually receiving rather than guessing.

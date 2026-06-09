@@ -156,3 +156,20 @@ This marks the first multi-item automation workflow in the project, moving beyon
 - URL parsing is important when working with real-world web links.
 - Debugging often involves distinguishing between code issues and third-party library behaviour.
 
+## 2026-06-09 — Improved Playlist Export System
+
+Enhanced the playlist export workflow to produce more meaningful and organized transcript files.
+
+Instead of saving playlist transcripts using generic names such as transcript_1.txt and transcript_2.txt, the application now retrieves each video's title and uses it as the filename. This makes exported transcripts immediately identifiable without needing to open them.
+
+Also added automatic transcript folder creation. All exported transcript files are now stored inside a dedicated transcripts directory rather than cluttering the project root.
+
+### Lessons Learned
+
+- External data can be used to generate more user-friendly filenames.
+- Functions can be expanded and reused without affecting the rest of the program.
+- Programs can automatically create folders using os.makedirs().
+- Organizing generated files becomes increasingly important as a project grows.
+- Small quality-of-life improvements can significantly improve the user experience.
+- Separating application files from generated output leads to a cleaner project structure.
+

@@ -54,13 +54,7 @@ def clean_transcript(transcript):
 
 def save_transcript(text, filename):
 
-    # Create a transcripts folder if it doesn't exist.
-    os.makedirs("transcripts", exist_ok=True)
-
-    # Open the file inside the transcripts folder.
-    with open(f"transcripts/{filename}", "w") as file:
-
-        # Write the transcript text into the file.
+    with open(filename, "w") as file:
         file.write(text)
 
     # Display success message.
@@ -75,7 +69,7 @@ def get_playlist_videos(playlist_url):
 
     video_urls = list(playlist.video_urls)
 
-    return video_urls
+    return playlist.title, video_urls
 
 def get_video_title(video_url):
 
@@ -84,6 +78,15 @@ def get_video_title(video_url):
 
     # Return the video title.
     return video.title
+
+def create_playlist_folder(playlist_name):
+
+    # Create a folder for the playlist transcripts.
+    folder_name = f"transcripts/{playlist_name}"
+
+    os.makedirs(folder_name, exist_ok=True)
+
+    return folder_name
 
 # ====================================
 # MAIN PROGRAM
@@ -133,7 +136,13 @@ if choice == "1":
 
     clean_text = clean_transcript(transcript)
 
-    save_transcript(clean_text, "transcript.txt")
+    title = get_video_title(youtube_url)
+
+    os.makedirs("transcripts/Single Videos", exist_ok=True)
+
+    filename = f"transcripts/Single Videos/{title}.txt"
+
+    save_transcript(clean_text, filename)
 
     print("> COMPLETE")
 
@@ -144,7 +153,9 @@ elif choice == "2":
 
     playlist_url = input("Enter Playlist URL: ")
 
-    videos = get_playlist_videos(playlist_url)
+    playlist_title, videos = get_playlist_videos(playlist_url)
+
+    folder_path = create_playlist_folder(playlist_title)
 
     print()
     print("> VIDEOS FOUND:", len(videos))
@@ -163,7 +174,7 @@ elif choice == "2":
 
         title = get_video_title(video)
 
-        filename = f"{title}.txt"
+        filename = f"{folder_path}/{title}.txt"
 
         save_transcript(clean_text, filename)
 

@@ -6,6 +6,8 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 from pytubefix import Playlist, YouTube
 
+import os
+
 # ====================================
 # FUNCTIONS
 # ====================================
@@ -52,8 +54,11 @@ def clean_transcript(transcript):
 
 def save_transcript(text, filename):
 
-    # Open the specified file in write mode.
-    with open(filename, "w") as file:
+    # Create a transcripts folder if it doesn't exist.
+    os.makedirs("transcripts", exist_ok=True)
+
+    # Open the file inside the transcripts folder.
+    with open(f"transcripts/{filename}", "w") as file:
 
         # Write the transcript text into the file.
         file.write(text)

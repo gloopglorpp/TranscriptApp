@@ -186,3 +186,31 @@ Single video transcripts are now stored inside a Single Videos folder, while pla
 - File paths can be built using variables to organize output automatically.
 - Good file organization becomes increasingly important as automation projects grow.
 
+## 2026-06-09 — Playlist Error Handling
+
+Added error handling for playlist transcript processing.
+
+The application now handles unavailable transcripts and YouTube IP blocking more safely. If a transcript is unavailable, the program can skip the video. If YouTube blocks requests from the current IP, the program stops playlist processing to avoid making the block worse.
+
+### Lessons Learned
+
+- `try` and `except` allow programs to handle errors without crashing.
+- Different errors should be handled in different ways.
+- Some failures come from external services rather than the program itself.
+- Safe stopping behaviour is better than repeatedly retrying blocked requests.
+
+## 2026-06-09 — Project Completion and External Service Issues
+
+The transcript application has now reached a functional state and successfully performs its intended core workflow. The program can process single videos and playlists, extract video information, organize transcripts into structured folders, save files using video titles, and handle various error conditions gracefully.
+
+During final testing, an unforeseen issue was encountered involving YouTube's rate limiting and anti-bot protections. While the application logic and architecture performed as expected, external requests for transcripts and subtitles began returning IP blocking and HTTP 429 ("Too Many Requests") errors. Testing with multiple transcript retrieval methods confirmed that the limitation originated from YouTube rather than the application itself.
+
+As a result, the project has been paused in a stable state while potential alternative retrieval methods are investigated. The overall structure, file management system, playlist processing, and error handling remain fully functional and provide a solid foundation for future development.
+
+### Lessons Learned
+
+- A project can function correctly while still being affected by limitations imposed by external services.
+- Third-party APIs and websites may introduce unexpected constraints that cannot be solved through application logic alone.
+- Robust error handling is essential when working with external systems.
+- Building a strong architecture early makes it easier to swap out components later if a dependency becomes unreliable.
+- Not every obstacle is a programming problem; sometimes the challenge lies in the systems being integrated.

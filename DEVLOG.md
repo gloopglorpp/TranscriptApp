@@ -120,3 +120,22 @@ The main program now acts as a high-level controller, calling functions in seque
 - Separating responsibilities makes future features easier to implement.
 - Well-named functions can make a program read almost like plain English.
 - Large projects become easier to manage when implementation details are hidden behind reusable functions.
+
+## 2026-06-09 — Playlist Support Foundation
+
+Expanded the application architecture to support future playlist processing.
+
+Integrated the pytubefix library and created functionality for retrieving video URLs from YouTube playlists. Refactored transcript saving to accept custom filenames, preparing the application to save multiple transcripts without overwriting existing files.
+
+Improved the overall program structure by separating single-video and playlist workflows and continuing to build functionality around reusable functions.
+
+During testing, discovered issues involving SSL certificates, URL parsing, and playlist processing. These were investigated and resolved incrementally, reinforcing the importance of debugging and testing after each change.
+
+### Lessons Learned
+
+- Functions make large features easier to build incrementally.
+- Third-party libraries can introduce environment-specific issues unrelated to application logic.
+- URLs often contain additional parameters that must be cleaned before processing.
+- Program flow should be separated so different menu options execute independent workflows.
+- Refactoring early makes future expansion significantly easier.
+- Debugging often involves isolating whether the problem is code, data, a library, or the development environment.

@@ -63,13 +63,13 @@ def save_transcript(text, filename):
 
 def get_playlist_videos(playlist_url):
 
-    # Create a playlist object.
     playlist = Playlist(playlist_url)
 
-    # Get the list of video URLs in the playlist.
-    video_urls = playlist.video_urls
+    print("Playlist title:", playlist.title)
+    print("Playlist URL:", playlist.playlist_url)
 
-    # Return the list of video URLs.
+    video_urls = list(playlist.video_urls)
+
     return video_urls
 
 # ====================================
@@ -134,15 +134,26 @@ elif choice == "2":
     videos = get_playlist_videos(playlist_url)
 
     print()
-    print("> RAW PLAYLIST DATA:")
-    print(videos)
-
-    print()
     print("> VIDEOS FOUND:", len(videos))
 
-    for video in videos:
+    for index, video in enumerate(videos, start=1):
 
-        print(video)
+        print()
+        print("> PROCESSING VIDEO", index)
+        print("> URL:", video)
+
+        video_id = extract_video_id(video)
+
+        transcript = download_transcript(video_id)
+
+        clean_text = clean_transcript(transcript)
+
+        filename = f"transcript_{index}.txt"
+
+        save_transcript(clean_text, filename)
+
+    print()
+    print("> PLAYLIST COMPLETE")
 
 else:
 

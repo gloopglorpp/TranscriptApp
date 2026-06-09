@@ -96,3 +96,27 @@ The application now downloads a transcript, removes metadata, converts it into r
 - Features should be integrated incrementally and tested after each change.
 - Text data can be transformed and saved as reusable files.
 - A working terminal interface can be built before creating a graphical user interface.
+
+## 2026-06-09 — Refactoring Into Functions
+
+Refactored the transcript processing workflow into reusable functions.
+
+Previously, the application contained all logic directly within the main program flow. To improve readability and prepare for future features such as playlist processing, the transcript workflow was separated into distinct functions.
+
+Created functions for:
+
+- Extracting a YouTube video ID from a URL
+- Downloading transcript data from YouTube
+- Converting transcript objects into clean text
+- Saving transcript text to a file
+
+The main program now acts as a high-level controller, calling functions in sequence rather than containing the implementation details itself. This makes the code easier to understand, maintain, and expand.
+
+### Lessons Learned
+
+- Functions allow code to be broken into smaller, reusable units.
+- Functions can accept inputs through parameters and return outputs using return.
+- Refactoring improves code organization without changing program behaviour.
+- Separating responsibilities makes future features easier to implement.
+- Well-named functions can make a program read almost like plain English.
+- Large projects become easier to manage when implementation details are hidden behind reusable functions.

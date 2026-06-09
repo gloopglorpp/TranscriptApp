@@ -4,14 +4,26 @@
 
 from youtube_transcript_api import YouTubeTranscriptApi
 
+from pytubefix import Playlist
+
 # ====================================
 # FUNCTIONS
 # ====================================
 
 def extract_video_id(url):
 
-    # Split the URL at "=" and return the second part.
-    return url.split("=")[1]
+    # Split the URL at "v=".
+    # Everything after "v=" starts with the video ID.
+    video_id_part = url.split("v=")[1]
+
+    # Split again at "&".
+    # This removes extra YouTube parameters like:
+    # &list=...
+    # &index=...
+    video_id = video_id_part.split("&")[0]
+
+    # Return only the clean video ID.
+    return video_id
 
 def download_transcript(video_id):
 
@@ -38,16 +50,27 @@ def clean_transcript(transcript):
     # Return the completed transcript.
     return clean_text
 
-def save_transcript(text):
+def save_transcript(text, filename):
 
-    # Open transcript.txt in write mode.
-    with open("transcript.txt", "w") as file:
+    # Open the specified file in write mode.
+    with open(filename, "w") as file:
 
         # Write the transcript text into the file.
         file.write(text)
 
     # Display success message.
-    print("Transcript saved to transcript.txt")
+    print("Transcript saved to", filename)
+
+def get_playlist_videos(playlist_url):
+
+    # Create a playlist object.
+    playlist = Playlist(playlist_url)
+
+    # Get the list of video URLs in the playlist.
+    video_urls = playlist.video_urls
+
+    # Return the list of video URLs.
+    return video_urls
 
 # ====================================
 # MAIN PROGRAM
@@ -91,23 +114,37 @@ if choice == "1":
 
     print("Processing...")
 
+    video_id = extract_video_id(youtube_url)
+
+    transcript = download_transcript(video_id)
+
+    clean_text = clean_transcript(transcript)
+
+    save_transcript(clean_text, "transcript.txt")
+
+    print("> COMPLETE")
+
 elif choice == "2":
 
     print()
     print("> PLAYLIST MODE SELECTED")
 
+    playlist_url = input("Enter Playlist URL: ")
+
+    videos = get_playlist_videos(playlist_url)
+
+    print()
+    print("> RAW PLAYLIST DATA:")
+    print(videos)
+
+    print()
+    print("> VIDEOS FOUND:", len(videos))
+
+    for video in videos:
+
+        print(video)
+
 else:
 
     print()
     print("> INVALID OPTION")
-
-# Extract the video ID from the URL.
-video_id = extract_video_id(youtube_url)
-
-transcript = download_transcript(video_id)
-
-clean_text = clean_transcript(transcript)
-
-save_transcript(clean_text)
-
-print("> COMPLETE")

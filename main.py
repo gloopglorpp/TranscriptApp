@@ -4,6 +4,8 @@
 
 from youtube_transcript_api import YouTubeTranscriptApi
 
+from youtube_transcript_api._errors import IpBlocked, VideoUnavailable, TranscriptsDisabled, NoTranscriptFound
+
 from pytubefix import Playlist, YouTube
 
 import os
@@ -64,10 +66,11 @@ def get_playlist_videos(playlist_url):
 
     playlist = Playlist(playlist_url)
 
-    print("Playlist title:", playlist.title)
-    print("Playlist URL:", playlist.playlist_url)
-
     video_urls = list(playlist.video_urls)
+
+    if len(video_urls) == 0:
+
+        print("> WARNING: Playlist returned no videos.")
 
     return playlist.title, video_urls
 
@@ -166,17 +169,34 @@ elif choice == "2":
         print("> PROCESSING VIDEO", index)
         print("> URL:", video)
 
-        video_id = extract_video_id(video)
+        try:
+            video_id = extract_video_id(video)
 
-        transcript = download_transcript(video_id)
+            transcript = download_transcript(video_id)
 
-        clean_text = clean_transcript(transcript)
+            clean_text = clean_transcript(transcript)
 
-        title = get_video_title(video)
+            title = get_video_title(video)
 
-        filename = f"{folder_path}/{title}.txt"
+            filename = f"{folder_path}/{index:02d} - {title}.txt"
 
-        save_transcript(clean_text, filename)
+            save_transcript(clean_text, filename)
+
+        except IpBlocked:
+            print("> IP BLOCKED BY YOUTUBE")
+            print("> STOPPING PLAYLIST TO AVOID MAKING IT WORSE")
+            break
+
+        except (VideoUnavailable, TranscriptsDisabled, NoTranscriptFound):
+            print("> TRANSCRIPT NOT AVAILABLE FOR THIS VIDEO")
+            print("> SKIPPING VIDEO")
+            continue
+
+        except Exception as error:
+            print("> UNEXPECTED ERROR:")
+            print(error)
+            print("> SKIPPING VIDEO")
+            continue
 
     print()
     print("> PLAYLIST COMPLETE")

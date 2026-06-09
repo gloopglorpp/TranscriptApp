@@ -173,3 +173,16 @@ Also added automatic transcript folder creation. All exported transcript files a
 - Small quality-of-life improvements can significantly improve the user experience.
 - Separating application files from generated output leads to a cleaner project structure.
 
+## 2026-06-09 — Playlist Folder Organization
+
+Improved transcript storage by organizing exports into dedicated folders.
+
+Single video transcripts are now stored inside a Single Videos folder, while playlist transcripts are automatically grouped into folders named after the playlist itself. Transcript files continue to use video titles as filenames, making large collections easier to navigate.
+
+### Lessons Learned
+
+- Programs can dynamically create folder structures using os.makedirs().
+- Variables must be created before they can be used.
+- File paths can be built using variables to organize output automatically.
+- Good file organization becomes increasingly important as automation projects grow.
+

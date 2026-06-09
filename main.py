@@ -2,17 +2,55 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 
 
-# Display application title.
-print("Transcript App")
+# Display a title banner.
 
+print("=" * 50)
 
-# Ask user for a YouTube URL.
-youtube_url = input("Paste Youtube URL here: ")
+print("TRANSCRIPT APP")
 
+print("=" * 50)
 
-# Tell the user we are processing.
-print("Processing...")
+print()
 
+# Display startup messages.
+
+print("> CONNECTING TO TRANSCRIPT SYSTEM...")
+
+print("> SYSTEM READY")
+
+print()
+
+# Display menu options.
+
+print("1. Single Video")
+
+print("2. Playlist")
+
+print()
+
+# Ask the user to choose an option.
+
+choice = input("Select option: ")
+
+# Check which option the user selected.
+if choice == "1":
+
+    print()
+    print("> SINGLE VIDEO MODE SELECTED")
+
+    youtube_url = input("Enter YouTube video URL: ")
+
+    print("Processing...")
+
+elif choice == "2":
+
+    print()
+    print("> PLAYLIST MODE SELECTED")
+
+else:
+
+    print()
+    print("> INVALID OPTION")
 
 # Extract the video ID from the URL.
 video_id = youtube_url.split("=")[1]

@@ -61,3 +61,38 @@ Successfully downloaded transcript data for a YouTube video and displayed the re
 - Classes act as blueprints and must often be instantiated before use.
 - Methods can return complex data structures that may need further processing.
 - Debugging often involves investigating what a program is actually receiving rather than guessing.
+
+## 2026-06-08 — Transcript Cleaning and File Export
+
+Implemented transcript cleaning and file export functionality.
+
+After successfully retrieving transcript data from YouTube, I processed the returned transcript objects to extract only the spoken text. This removed timestamps and other metadata, producing a clean, readable transcript.
+
+Introduced a for loop to iterate through each transcript snippet and used object attributes to access the transcript text. The individual transcript lines were combined into a single string representing the complete transcript.
+
+The application can now save the cleaned transcript to a text file named transcript.txt, creating a permanent output file instead of displaying large amounts of text in the terminal.
+
+### Lessons Learned
+
+- Loops can process collections of objects one item at a time.
+- Objects expose data through attributes using dot notation.
+- Strings can be built incrementally during processing.
+- Files can be created and written using Python's open() function.
+- The with statement automatically handles file closing and cleanup.
+- Program output can be transformed into reusable files rather than temporary terminal output.
+
+## 2026-06-09 — Terminal Menu System
+
+Added a terminal-based menu system to the application.
+
+Users can now select between Single Video and Playlist modes. Single Video mode has been fully integrated with the transcript pipeline, allowing a YouTube URL to be processed from start to finish.
+
+The application now downloads a transcript, removes metadata, converts it into readable text, and saves the result as a text file. This marks the first complete workflow within the project.
+
+### Lessons Learned
+
+- Conditional statements allow programs to follow different paths based on user input.
+- Menu systems provide a simple way to organize application functionality.
+- Features should be integrated incrementally and tested after each change.
+- Text data can be transformed and saved as reusable files.
+- A working terminal interface can be built before creating a graphical user interface.

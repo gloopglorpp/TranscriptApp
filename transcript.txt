@@ -1,308 +1,118 @@
-The Riemann zeta function.
-This is one of those objects in modern math that a lot of you might have heard of, 
-but which can be really difficult to understand.
-Don't worry, I'll explain that animation that you just saw in a few minutes.
-A lot of people know about this function because there's a one 
-million dollar prize out for anyone who can figure out when it equals zero, 
-an open problem known as the Riemann hypothesis.
-Some of you may have heard of it in the context of the 
-divergent sum 1 plus 2 plus 3 plus 4 on and on up to infinity.
-You see, there's a sense in which this sum equals negative 1 twelfth, 
-which seems nonsensical if not obviously wrong.
-But a common way to define what this equation is 
-actually saying uses the Riemann zeta function.
-But as any casual math enthusiast who started to read into this knows, 
-its definition references this one idea called analytic continuation, 
-which has to do with complex valued functions.
-And this idea can be frustratingly opaque and unintuitive.
-So what I'd like to do here is just show you all what this zeta 
-function actually looks like, and to explain what this idea of 
-analytic continuation is in a visual and more intuitive way.
-I'm assuming that you know about complex numbers, 
-and that you're comfortable working with them.
-And I'm tempted to say that you should know calculus, 
-since analytic continuation is all about derivatives, 
-but for the way I'm planning to present things I think you might 
-actually be fine without that.
-So to jump right into it, let's just define what this zeta function is.
-For a given input, where we commonly use the variable s, 
-the function is 1 over 1 to the s, which is always 1, plus 1 over 2 to the s, 
-plus 1 over 3 to the s, plus 1 over 4 to the s, on and on and on, 
-summing up over all natural numbers.
-So for example, let's say you plug in a value like s equals 2.
-You'd get 1 plus 1 over 4 plus 1 over 9 plus 1 sixteenth, 
-and as you keep adding more and more reciprocals of squares, 
-this just so happens to approach pi squared over 6, which is around 1.645.
-There's a very beautiful reason for why pi shows up here, 
-and I might do a video on it at a later date, but that's just the tip of the iceberg for 
-why this function is beautiful.
-You could do the same thing for other inputs s, 
-like 3 or 4, and sometimes you get other interesting values.
-And so far, everything feels pretty reasonable.
-You're adding up smaller and smaller amounts, and these sums approach some number.
-Great, no craziness here.
-Yet, if you were to read about it, you might see some 
-people say that zeta of negative 1 equals negative 1 twelfth.
-But looking at this infinite sum, that doesn't make any sense.
-When you raise each term to the negative 1, flipping each fraction, 
-you get 1 plus 2 plus 3 plus 4 on and on over all natural numbers.
-And obviously that doesn't approach anything, certainly not negative 1 twelfth, right?
-And, as any mercenary looking into the Riemann hypothesis knows, 
-this function is said to have trivial zeros at negative even numbers.
-So for example, that would mean that zeta of negative 2 equals 0.
-But when you plug in negative 2, it gives you 1 plus 4 plus 9 plus 16 on and on, 
-which again obviously doesn't approach anything, much less 0, right?
-Well, we'll get to negative values in a few minutes, 
-but for right now, let's just say the only thing that seems reasonable.
-This function only makes sense when s is greater than 1, which is when this sum converges.
-So far, it's simply not defined for other values.
-Now, with that said, Bernard Riemann was somewhat of a father to complex analysis, 
-which is the study of functions that have complex numbers as inputs and outputs.
-So rather than just thinking about how this sum takes a number s on the 
-real number line to another number on the real number line, 
-his main focus was on understanding what happens when you plug in a complex value for s.
-So for example, maybe instead of plugging in 2, you would plug in 2 plus i.
-Now, if you've never seen the idea of raising a number to the power of a complex value, 
-it can feel kind of strange at first, because it no longer has 
-anything to do with repeated multiplication.
-But mathematicians found that there is a very nice and very natural 
-way to extend the definition of exponents beyond their familiar 
-territory of real numbers and into the realm of complex values.
-It's not super crucial to understand complex exponents for where I'm going with 
-this video, but I think it'll still be nice if we just summarize the gist of it here.
-The basic idea is that when you write something like 1 half to the power of a complex 
-number, you split it up as 1 half to the real part times 1 half to the pure imaginary 
-part.
-We're good on 1 half to the real part, there's no issues there.
-But what about raising something to a pure imaginary number?
-Well, the result is going to be some complex number 
-on the unit circle in the complex plane.
-As you let that pure imaginary input walk up and down the imaginary line, 
-the resulting output walks around that unit circle.
-For a base like 1 half, the output walks around the unit circle somewhat slowly.
-But for a base that's farther away from 1, like 1 ninth, 
-then as you let this input walk up and down the imaginary axis, 
-the corresponding output is going to walk around the unit circle more quickly.
-If you've never seen this and you're wondering why on earth this happens, 
-I've left a few links to good resources in the description.
-For here, I'm just going to move forward with the what without the why.
-The main takeaway is that when you raise something like 1 half to the power of 2 plus i, 
-which is 1 half squared times 1 half to the i, 
-that 1 half to the i part is going to be on the unit circle, 
-meaning it has an absolute value of 1.
-So when you multiply it, it doesn't change the size of the number, 
-it just takes that 1 fourth and rotates it somewhat.
-So, if you were to plug in 2 plus i to the zeta function, 
-one way to think about what it does is to take the 1 half to the i part and 
-think about what it does is to start off with all of the terms raised to the power of 2, 
-which you can think of as piecing together lines whose lengths are the 
-reciprocals of squares of numbers, which, like I said before, 
-converges to pi squared over 6.
-Then when you change that input from 2 up to 2 plus i, 
-each of these lines gets rotated by some amount.
-But importantly, the lengths of those lines won't change, so the sum still converges, 
-it just does so in a spiral to some specific point on the complex plane.
-Here, let me show what it looks like when I vary the input s, 
-represented with this yellow dot on the complex plane, 
-where this spiral sum is always going to be showing the converging value for zeta of s.
-What this means is that zeta of s, defined as this infinite sum, 
-is a perfectly reasonable complex function as long as the real part of the input 
-is greater than 1, meaning the input s sits somewhere on this right half of the 
-complex plane.
-Again, this is because it's the real part of s that determines the size of each number, 
-while the imaginary part just dictates some rotation.
-So now what I want to do is visualize this function.
-It takes in inputs on the right half of the complex plane 
-and spits out outputs somewhere else in the complex plane.
-A super nice way to understand complex functions is to visualize them as transformations, 
-meaning you look at every possible input to the function and just 
-let it move over to the corresponding output.
-For example, let's take a moment and try to visualize 
-something a little bit easier than the zeta function.
-Say f of s is equal to s squared.
-When you plug in s equals 2, you get 4, so we'll 
-end up moving that point at 2 over to the point at 4.
-When you plug in negative 1, you get 1, so the point over here 
-at negative 1 is going to end up moving over to the point at 1.
-When you plug in i, by definition its square is negative 1, 
-so it's going to move over here to negative 1.
-Now I'm going to add on a more colorful grid, and this is just 
-because things are about to start moving, and it's kind of nice 
-to have something to distinguish grid lines during that movement.
-From here, I'll tell the computer to move every single point on this grid 
-over to its corresponding output under the function f of s equals s squared.
-Here's what it looks like.
-That can be a lot to take in, so I'll go ahead and play it again.
-And this time, focus on one of the marked points, 
-and notice how it moves over to the point corresponding to its square.
-It can be a little complicated to see all of the points moving all at once, 
-but the reward is that this gives us a very rich picture for what the 
-complex function is actually doing, and it all happens in just two dimensions.
-So, back to the zeta function.
-We have this infinite sum, which is a function of some complex number s, 
-and we feel good and happy about plugging in values of s whose real part is 
-greater than 1, and getting some meaningful output via the converging spiral sum.
-So to visualize this function, I'm going to take the portion of the grid sitting on the 
-right side of the complex plane here, where the real part of numbers is greater than 1, 
-and I'm going to tell the computer to move each point of this grid to the appropriate 
-output.
-It actually helps if I add a few more grid lines around the number 1, 
-since that region gets stretched out by quite a bit.
-Alright, so first of all, let's all just appreciate how beautiful that is.
-I mean, damn, if that doesn't make you want to learn more about complex functions, 
-you have no heart.
-But also, this transformed grid is just begging to be extended a little bit.
-For example, let's highlight these lines here, 
-which represent all of the complex numbers with imaginary part i, or negative i.
-After the transformation, these lines make such 
-lovely arcs before they just abruptly stop.
-Don't you want to just, you know, continue those arcs?
-In fact, you can imagine how some altered version of the function, 
-with a definition that extends into this left half of the plane, 
-might be able to complete this picture with something that's quite pretty.
-Well, this is exactly what mathematicians working with complex functions do.
-They continue the function beyond the original domain where it was defined.
-Now, as soon as we branch over into inputs where the real part is less than 1, 
-this infinite sum that we originally used to define the function doesn't make sense 
-anymore.
-You'll get nonsense, like adding 1 plus 2 plus 3 plus 4 on and on up to infinity.
-But just looking at this transformed version of the right half of the plane, 
-where the sum does make sense, it's just begging us to extend 
-the set of points that we're considering as inputs.
-Even if that means defining the extended function 
-in some way that doesn't necessarily use that sum.
-Of course, that leaves us with the question, how 
-would you define that function on the rest of the plane?
-You might think that you could extend it any number of ways.
-Maybe you define an extension that makes it so the point at, 
-say, s equals negative 1 moves over to negative 1 twelfth.
-But maybe you squiggle on some extension that makes it land on any other value.
-I mean, as soon as you open yourself up to the idea of defining the function differently 
-for values outside that domain of convergence, that is, not based on this infinite sum, 
-the world is your oyster, and you can have any number of extensions, right?
-Well, not exactly.
-I mean, yes, you can give any child a marker and have them extend these lines any 
-which way, but if you add on the restriction that this new extended function has to 
-have a derivative everywhere, it locks us into one and only one possible extension.
-I know, I know, I said that you wouldn't need to know about derivatives for this video, 
-and even if you do know calculus, maybe you have yet to learn how 
-to interpret derivatives for complex functions.
-But luckily for us, there is a very nice geometric intuition that you 
-can keep in mind for when I say a phrase like, has a derivative everywhere.
-Here, to show you what I mean, let's look back at that f of s equals s squared example.
-Again, we think of this function as a transformation, 
-moving every point s of the complex plane over to the point s squared.
-For those of you who know calculus, you know that you can take the derivative 
-of this function at any given input, but there's an interesting property of that 
-transformation that turns out to be related and almost equivalent to that fact.
-If you look at any two lines in the input space that intersect at some angle, 
-and consider what they turn into after the transformation, 
-they will still intersect each other at that same angle.
-The lines might get curved, and that's okay, but the important 
-part is that the angle at which they intersect remains unchanged, 
-and this is true for any pair of lines that you choose.
-So when I say a function has a derivative everywhere, 
-I want you to think about this angle-preserving property, 
-that any time two lines intersect, the angle between them remains 
-unchanged after the transformation.
-At a glance, this is easiest to appreciate by noticing how all of the curves 
-that the grid lines turn into still intersect each other at right angles.
-Complex functions that have a derivative everywhere are called analytic, 
-so you can think of this term analytic as meaning angle-preserving.
-Admittedly, I'm lying to you a little here, but only a little bit.
-A slight caveat for those of you who want the full details is 
-that at inputs where the derivative of a function is zero, 
-instead of angles being preserved, they get multiplied by some integer.
-But those points are by far the minority, and for almost 
-all inputs to an analytic function, angles are preserved.
-So if when I say analytic, you think angle-preserving, 
-I think that's a fine intuition to have.
-Now, if you think about it for a moment, and this is a point that 
-I really want you to appreciate, this is a very restrictive property.
-The angle between any pair of intersecting lines has to remain unchanged.
-And yet, pretty much any function out there that has a name turns out to be analytic.
-The field of complex analysis, which Riemann helped to establish in its modern form, 
-is almost entirely about leveraging the properties of analytic functions to 
-understand results and patterns in other fields of math and science.
-The zeta function, defined by this infinite sum on the right half of the plane, 
-is an analytic function.
-Notice how all of these curves that the grid lines 
-turn into still intersect each other at right angles.
-So the surprising fact about complex functions is that if you want to extend an 
-analytic function beyond the domain where it was originally defined, for example, 
-extending this zeta function into the left half of the plane, 
-then if you require that the new extended function still be analytic, that is, 
-that it still preserves angles everywhere, it forces you into only one possible 
-extension, if one exists at all.
-It's kind of like an infinite continuous jigsaw puzzle, 
-where this requirement of preserving angles locks you into one and only one choice 
-for how to extend it.
-This process of extending an analytic function in the only way possible that's 
-still analytic is called, as you may have guessed, analytic continuation.
-So that's how the full Riemann zeta function is defined.
-For values of s on the right half of the plane, where the real part is greater than 1, 
-we can plug them into this sum and see where it converges.
-And that convergence might look like some kind of spiral, 
-since raising each of these terms to a complex power has the effect of rotating each one.
-Then for the rest of the plane, we know that there exists one and only 
-one way to extend this definition so that the function will still be analytic, 
-that is, so that it still preserves angles at every single point.
-So we just say that by definition, the zeta function on the 
-left half of the plane is whatever that extension happens to be.
-And that's a valid definition because there's only one possible analytic continuation.
-Notice, that's a very implicit definition.
-It just says, use the solution of this jigsaw puzzle, 
-which through more abstract derivation we know must exist, 
-but it doesn't specify exactly how to solve it.
-Mathematicians have a pretty good grasp on what this extension looks like, 
-but some important parts of it remain a mystery.
-A million dollar mystery, in fact.
-Let's actually take a moment and talk about the Riemann hypothesis, 
-which is a million dollar problem.
-The places where this function equals zero turn out to be quite important, 
-that is, which points get mapped onto the origin after the transformation.
-One thing we know about this extension is that 
-the negative even numbers get mapped to zero.
-These are commonly called the trivial zeros.
-The naming here stems from a long-standing tradition of mathematicians 
-to call things trivial when they understand it quite well, 
-even when it's a fact that is not at all obvious from the outset.
-We also know that the rest of the points that get mapped to zero sit somewhere 
-in this vertical strip, called the critical strip, 
-and the specific placement of those non-trivial zeros encodes a surprising 
-information about prime numbers.
-It's actually pretty interesting why this function carries so much information 
-about primes, and I definitely think I'll make a video about that later on, 
-but right now things are long enough, so I'll leave it unexplained.
-Riemann hypothesized that all of these non-trivial zeros sit right in the 
-middle of the strip, on the line of numbers s, whose real part is one half.
-This is called the critical line.
-If that's true, it gives us a remarkably tight grasp on the pattern of prime numbers, 
-as well as many other patterns in math that stem from this.
-Now, so far, when I've shown what the zeta function looks like, 
-I've only shown what it does to the portion of the grid on the screen, 
-and that kind of undersells its complexity.
-So if I were to highlight this critical line and apply the transformation, 
-it might not seem to cross the origin at all.
-However, here's what the transformed version of more and more of that line looks like.
-Notice how it's passing through the number zero many, many times.
-If you can prove that all of the non-trivial zeros sit somewhere on this line, 
-the Clay Math Institute gives you one million dollars.
-And you'd also be proving hundreds, if not thousands, 
-of modern math results that have already been shown contingent on this 
-hypothesis being true.
-Another thing we know about this extended function is that 
-it maps the point negative one over to negative one twelfth.
-And if you plug this into the original sum, it looks like we're saying one plus 
-two plus three plus four, on and on up to infinity, equals negative one twelfth.
-Now, it might seem disingenuous to still call this a sum, 
-since the definition of the zeta function on the left half of the plane is not defined 
-directly from this sum.
-Instead, it comes from analytically continuing 
-the sum beyond the domain where it converges.
-That is, solving the jigsaw puzzle that began on the first line of the line, 
-solving the jigsaw puzzle that began on the right half of the plane.
-That said, you have to admit that the uniqueness of this analytic continuation, 
-the fact that the jigsaw puzzle has only one solution, 
-is very suggestive of some intrinsic connection between these extended values 
-and the original sum.
+[Submit subtitle corrections at criblate.com]
+Imagine you happen across a short movie script that
+describes a scene between a person and their AI assistant.
+The script has what the person asks the AI, but the AI's response has been torn off.
+Suppose you also have this powerful magical machine that can take
+any text and provide a sensible prediction of what word comes next.
+You could then finish the script by feeding in what you have to the machine,
+seeing what it would predict to start the AI's answer,
+and then repeating this over and over with a growing script completing the dialogue.
+When you interact with a chatbot, this is exactly what's happening.
+A large language model is a sophisticated mathematical function
+that predicts what word comes next for any piece of text.
+Instead of predicting one word with certainty, though,
+what it does is assign a probability to all possible next words.
+To build a chatbot, what you do is lay out some
+text that describes an interaction between a user
+and a hypothetical AI assistant, you add on whatever
+the user types in as the first part of
+the interaction, and then have the model repeatedly predict the next word that such a
+hypothetical AI assistant would say in response, and that's what's presented to the user.
+In doing this, the output tends to look a lot more natural if
+you allow it to select less likely words along the way at random.
+So what this means is even though the model itself is deterministic,
+a given prompt typically gives a different answer each time it's run.
+Models learn how to make these predictions by processing an enormous amount of text,
+typically pulled from the internet.
+For a standard human to read the amount of text that was used to train GPT-3,
+for example, if they read non-stop 24-7, it would take over 2600 years.
+Larger models since then train on much, much more.
+You can think of training a little bit like tuning the dials on a big machine.
+The way that a language model behaves is entirely determined by these
+many different continuous values, usually called parameters or weights.
+Changing those parameters will change the probabilities
+that the model gives for the next word on a given input.
+What puts the large in large language model is how
+they can have hundreds of billions of these parameters.
+No human ever deliberately sets those parameters.
+Instead, they begin at random, meaning the model just outputs gibberish,
+but they're repeatedly refined based on many example pieces of text.
+One of these training examples could be just a handful of words,
+or it could be thousands, but in either case, the way this works is to
+pass in all but the last word from that example into the model and
+compare the prediction that it makes with the true last word from the example.
+An algorithm called backpropagation is used to tweak all of the parameters
+in such a way that it makes the model a little more likely to choose
+the true last word and a little less likely to choose all the others.
+When you do this for many, many trillions of examples,
+not only does the model start to give more accurate predictions on the training data,
+but it also starts to make more reasonable predictions on text that it's never
+seen before.
+Given the huge number of parameters and the enormous amount of training data,
+the scale of computation involved in training a large language model is mind-boggling.
+To illustrate, imagine that you could perform one
+billion additions and multiplications every single second.
+How long do you think it would take for you to do all of the
+operations involved in training the largest language models?
+Do you think it would take a year?
+Maybe something like 10,000 years?
+The answer is actually much more than that.
+It's well over 100 million years.
+This is only part of the story, though.
+This whole process is called pre-training.
+The goal of auto-completing a random passage of text from the
+internet is very different from the goal of being a good AI assistant.
+To address this, chatbots undergo another type of training,
+just as important, called reinforcement learning with human feedback.
+Workers flag unhelpful or problematic predictions,
+and their corrections further change the model's parameters,
+making them more likely to give predictions that users prefer.
+Looking back at the pre-training, though, this staggering amount of
+computation is only made possible by using special computer chips that
+are optimized for running many operations in parallel, known as GPUs.
+However, not all language models can be easily parallelized.
+Prior to 2017, most language models would process text one word at a time,
+but then a team of researchers at Google introduced a new model known as the transformer.
+Transformers don't read text from the start to the finish,
+they soak it all in at once, in parallel.
+The very first step inside a transformer, and most other language models for that matter,
+is to associate each word with a long list of numbers.
+The reason for this is that the training process only works with continuous values,
+so you have to somehow encode language using numbers,
+and each of these lists of numbers may somehow encode the meaning of the
+corresponding word.
+What makes transformers unique is their reliance
+on a special operation known as attention.
+This operation gives all of these lists of numbers a chance to talk to one another
+and refine the meanings they encode based on the context around, all done in parallel.
+For example, the numbers encoding the word bank might be changed based on the
+context surrounding it to somehow encode the more specific notion of a riverbank.
+Transformers typically also include a second type of operation known
+as a feed-forward neural network, and this gives the model extra
+capacity to store more patterns about language learned during training.
+All of this data repeatedly flows through many different iterations of
+these two fundamental operations, and as it does so,
+the hope is that each list of numbers is enriched to encode whatever
+information might be needed to make an accurate prediction of what word
+follows in the passage.
+At the end, one final function is performed on the last vector in this sequence,
+which now has had a chance to be influenced by all the other context from the input text,
+as well as everything the model learned during training,
+to produce a prediction of the next word.
+Again, the model's prediction looks like a probability for every possible next word.
+Although researchers design the framework for how each of these steps work,
+it's important to understand that the specific behavior is an emergent phenomenon
+based on how those hundreds of billions of parameters are tuned during training.
+This makes it incredibly challenging to determine
+why the model makes the exact predictions that it does.
+What you can see is that when you use large language model predictions to autocomplete
+a prompt, the words that it generates are uncannily fluent, fascinating, and even useful.
+If you're a new viewer and you're curious about more details on how
+transformers and attention work, boy do I have some material for you.
+One option is to jump into a series I made about deep learning,
+where we visualize and motivate the details of attention and all the other steps
+in a transformer.
+Also, on my second channel I just posted a talk I gave a couple
+months ago about this topic for the company TNG in Munich.
+Sometimes I actually prefer the content I make as a casual talk rather than a produced
+video, but I leave it up to you which one of these feels like the better follow-on.

@@ -4,7 +4,7 @@
 
 from youtube_transcript_api import YouTubeTranscriptApi
 
-from pytubefix import Playlist
+from pytubefix import Playlist, YouTube
 
 # ====================================
 # FUNCTIONS
@@ -71,6 +71,14 @@ def get_playlist_videos(playlist_url):
     video_urls = list(playlist.video_urls)
 
     return video_urls
+
+def get_video_title(video_url):
+
+    # Create a YouTube object.
+    video = YouTube(video_url)
+
+    # Return the video title.
+    return video.title
 
 # ====================================
 # MAIN PROGRAM
@@ -148,7 +156,9 @@ elif choice == "2":
 
         clean_text = clean_transcript(transcript)
 
-        filename = f"transcript_{index}.txt"
+        title = get_video_title(video)
+
+        filename = f"{title}.txt"
 
         save_transcript(clean_text, filename)
 

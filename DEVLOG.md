@@ -139,3 +139,20 @@ During testing, discovered issues involving SSL certificates, URL parsing, and p
 - Program flow should be separated so different menu options execute independent workflows.
 - Refactoring early makes future expansion significantly easier.
 - Debugging often involves isolating whether the problem is code, data, a library, or the development environment.
+
+## 2026-06-09 — Playlist Transcript Support
+
+Added playlist processing functionality to the application.
+
+The program can now accept a YouTube playlist URL, retrieve all available video URLs from the playlist, and automatically process each video. For every video found, the transcript is downloaded, cleaned, and saved as a separate text file.
+
+This marks the first multi-item automation workflow in the project, moving beyond single-video processing.
+
+### Lessons Learned
+
+- Functions become increasingly valuable as projects grow.
+- Loops allow the same workflow to be applied repeatedly to many items.
+- Playlist data can be retrieved and processed programmatically.
+- URL parsing is important when working with real-world web links.
+- Debugging often involves distinguishing between code issues and third-party library behaviour.
+

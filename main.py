@@ -1,8 +1,57 @@
-# Import the transcript library.
+# ====================================
+# IMPORTS
+# ====================================
+
 from youtube_transcript_api import YouTubeTranscriptApi
 
+# ====================================
+# FUNCTIONS
+# ====================================
 
-# Display a title banner.
+def extract_video_id(url):
+
+    # Split the URL at "=" and return the second part.
+    return url.split("=")[1]
+
+def download_transcript(video_id):
+
+    # Create a transcript API object.
+    ytt_api = YouTubeTranscriptApi()
+
+    # Download transcript data and return it.
+    return ytt_api.fetch(video_id)
+
+def clean_transcript(transcript):
+
+    # Create an empty string to store the final transcript.
+    clean_text = ""
+
+    # Loop through every transcript snippet.
+    for entry in transcript:
+
+        # Add the text from the snippet.
+        clean_text += entry.text
+
+        # Add a newline after each snippet.
+        clean_text += "\n"
+
+    # Return the completed transcript.
+    return clean_text
+
+def save_transcript(text):
+
+    # Open transcript.txt in write mode.
+    with open("transcript.txt", "w") as file:
+
+        # Write the transcript text into the file.
+        file.write(text)
+
+    # Display success message.
+    print("Transcript saved to transcript.txt")
+
+# ====================================
+# MAIN PROGRAM
+# ====================================
 
 print("=" * 50)
 
@@ -53,55 +102,12 @@ else:
     print("> INVALID OPTION")
 
 # Extract the video ID from the URL.
-video_id = youtube_url.split("=")[1]
+video_id = extract_video_id(youtube_url)
 
+transcript = download_transcript(video_id)
 
-# Create a transcript API object.
-ytt_api = YouTubeTranscriptApi()
+clean_text = clean_transcript(transcript)
 
+save_transcript(clean_text)
 
-# Download transcript data.
-transcript = ytt_api.fetch(video_id)
-
-
-# Create an empty string.
-#
-# We will gradually add transcript text to this variable.
-clean_transcript = ""
-
-
-# Loop through every transcript entry.
-#
-# Each entry contains:
-# text
-# start
-# duration
-for entry in transcript:
-
-    # Take only the text portion.
-    #
-    # Example:
-    # entry["text"]
-    #
-    # might return:
-    # "Hello everyone"
-    clean_transcript += entry.text
-
-    # Add a newline after each transcript line.
-    clean_transcript += "\n"
-
-# Open a file named transcript.txt.
-#
-# "w" means write mode.
-# If the file already exists, it will be overwritten.
-with open("transcript.txt", "w") as file:
-
-    # Write the cleaned transcript into the file.
-    file.write(clean_transcript)
-
-
-# Tell the user the file was created.
-print("Transcript saved to transcript.txt")
-
-# Print the cleaned transcript.
-print(clean_transcript)
+print("> COMPLETE")
